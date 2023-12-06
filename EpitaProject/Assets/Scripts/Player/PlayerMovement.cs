@@ -2,6 +2,7 @@
 using UnityEngine;
 using UniRx.Triggers;
 using System.Collections;
+using TMPro;
 
 public class PlayerMovement : MonoBehaviour
 {

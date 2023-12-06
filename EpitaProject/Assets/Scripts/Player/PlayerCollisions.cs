@@ -5,6 +5,7 @@ public class PlayerCollisions : MonoBehaviour
 {
     [SerializeField] private GameObject bloodParticles;
     private Animator playerAnim;
+    
 
     private void Awake()
     {
@@ -40,4 +41,5 @@ public class PlayerCollisions : MonoBehaviour
             GameEvents.instance.gameWon.SetValueAndForceNotify(true);
         }
     }
+
 }
