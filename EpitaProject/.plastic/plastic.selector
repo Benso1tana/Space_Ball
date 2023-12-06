@@ -1,0 +1,4 @@
+repository "EpitaProject@medaminebensoltana@cloud"
+  path "/"
+    br "/main"
+    co "/main"
