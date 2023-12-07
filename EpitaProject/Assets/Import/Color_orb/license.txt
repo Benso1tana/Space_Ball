@@ -1,0 +1,11 @@
+Model Information:
+* title:	Color orb
+* source:	https://sketchfab.com/3d-models/color-orb-4d5882be5eaa4214aa394ae96563f14e
+* author:	tamminen (https://sketchfab.com/tamminen)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Color orb" (https://sketchfab.com/3d-models/color-orb-4d5882be5eaa4214aa394ae96563f14e) by tamminen (https://sketchfab.com/tamminen) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
