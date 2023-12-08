@@ -16,6 +16,6 @@ public class Saber : MonoBehaviour
     void Update()
     {
         // Rotate the sphere around its up axis at the specified speed
-        transform.Rotate(Vector3.up, (speed * 100) * Time.deltaTime);
+        transform.Rotate(0, 0, 10 * speed * Time.deltaTime);
     }
 }
