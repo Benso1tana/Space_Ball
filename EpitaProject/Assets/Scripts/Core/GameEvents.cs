@@ -21,7 +21,7 @@ public class GameEvents : MonoBehaviour
         playerSize.ObserveEveryValueChanged(x => x.Value)
             .Subscribe(value =>
             {
-                if (value <= 0)
+                if (false)
                     gameLost.SetValueAndForceNotify(true);
             })
             .AddTo(subscriptions);

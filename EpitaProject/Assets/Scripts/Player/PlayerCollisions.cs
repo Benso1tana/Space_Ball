@@ -59,8 +59,11 @@ public class PlayerCollisions : MonoBehaviour
         }
         if (other.tag == "Obstacle")
         {
-            playerAnim.SetTrigger("kick");
-            other.GetComponent<Block>().CheckHit();
+            GameEvents.instance.gameWon.SetValueAndForceNotify(true);
+                loseTextObject.SetActive(true);
+                Panel.SetActive(true);
+                Debug.Log("Ouchs");
+
         }
         if (other.tag == "Gate")
             other.GetComponent<Gate>().ExecuteOperation();
