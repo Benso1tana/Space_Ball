@@ -1,10 +1,15 @@
-﻿using UnityEngine;
+﻿using UnityEngine.SceneManagement;
+using UnityEngine;
 
 public class StartGame : MonoBehaviour
 {
-    public void GameStart()
+    public void PlayGame()
     {
-        Time.timeScale = 1;
-        GameEvents.instance.gameStarted.SetValueAndForceNotify(true);
+        SceneManager.LoadSceneAsync(1);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }
