@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     
-    [SerializeField] private float speed = 10f; // Rotation speed, adjustable in the Unity Editor
+    [SerializeField] public float speed = 10f; // Rotation speed, adjustable in the Unity Editor
     // Update is called once per frame
     void Update()
     {

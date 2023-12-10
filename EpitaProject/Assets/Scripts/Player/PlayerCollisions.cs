@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using DG.Tweening;
 using TMPro;
+using PathCreation.Examples;
 
 public class PlayerCollisions : MonoBehaviour
 {
@@ -13,7 +14,8 @@ public class PlayerCollisions : MonoBehaviour
     
     public GameObject[] emptyBottles;
     public GameObject[] fullBottles;
-
+    public PathFollower trackSpeed;
+    public PlayerController rotationSpeed;
     private int countBottle = 0;
 
     private int count;
@@ -38,6 +40,7 @@ public class PlayerCollisions : MonoBehaviour
     {
         playerAnim = GetComponent<Animator>();
         bloodParticles.SetActive(false);
+       
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -79,12 +82,24 @@ public class PlayerCollisions : MonoBehaviour
             winTextObject.SetActive(true);
             Panel.SetActive(true);
         }
-        if (other.CompareTag("Bottle") && countBottle < emptyBottles.Length)
+
+    
+        if (other.CompareTag("Bottle") /*&& countBottle < emptyBottles.Length*/)
         {
             other.gameObject.SetActive(false);
             emptyBottles[countBottle].SetActive(false);
             fullBottles[countBottle].SetActive(true);
             countBottle++;
+            Debug.Log("picked bottle") ; 
+             if (trackSpeed != null)
+            {
+                trackSpeed.speed += 5;
+                Debug.Log("added speed") ;
+            }
+            if (rotationSpeed != null)
+            {
+                rotationSpeed.speed += 2;
+            }
         }
     }
 
