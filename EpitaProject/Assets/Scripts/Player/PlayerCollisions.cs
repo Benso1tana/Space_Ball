@@ -14,9 +14,6 @@ public class PlayerCollisions : MonoBehaviour
 
     public GameObject pauseButton;
     [SerializeField] GameObject pauseMenu;
-    
-    public GameObject[] emptyBottles;
-    public GameObject[] fullBottles;
     public PathFollower trackSpeed;
     public PlayerController rotationSpeed;
     private int countBottle = 0;
@@ -32,8 +29,6 @@ public class PlayerCollisions : MonoBehaviour
         pauseButton.SetActive(true);
         Panel.SetActive(false);
         loseTextObject.SetActive(false);
-        emptyBottles[countBottle].SetActive(true);
-        fullBottles[countBottle].SetActive(false);
     }
 
     void SetCountText()
@@ -91,21 +86,19 @@ public class PlayerCollisions : MonoBehaviour
         }
 
     
-        if (other.CompareTag("Bottle") /*&& countBottle < emptyBottles.Length*/)
+        if (other.CompareTag("Bottle"))
         {
             other.gameObject.SetActive(false);
-            emptyBottles[countBottle].SetActive(false);
-            fullBottles[countBottle].SetActive(true);
             countBottle++;
             Debug.Log("picked bottle") ; 
              if (trackSpeed != null)
             {
-                trackSpeed.speed += 5;
+                trackSpeed.speed += 10;
                 Debug.Log("added speed") ;
             }
             if (rotationSpeed != null)
             {
-                rotationSpeed.speed += 2;
+                rotationSpeed.speed += 3;
             }
         }
     }
