@@ -10,6 +10,9 @@ public class PlayerCollisions : MonoBehaviour
     public GameObject winTextObject;
     public GameObject Panel;
     public GameObject loseTextObject;
+
+    public GameObject pauseButton;
+    [SerializeField] GameObject pauseMenu;
     
     public GameObject[] emptyBottles;
     public GameObject[] fullBottles;
@@ -23,6 +26,8 @@ public class PlayerCollisions : MonoBehaviour
         count = 0;
         SetCountText();
         winTextObject.SetActive(false);
+        pauseMenu.SetActive(false);
+        pauseButton.SetActive(true);
         Panel.SetActive(false);
         loseTextObject.SetActive(false);
         emptyBottles[countBottle].SetActive(true);
@@ -61,7 +66,8 @@ public class PlayerCollisions : MonoBehaviour
         {
             GameEvents.instance.gameWon.SetValueAndForceNotify(true);
                 loseTextObject.SetActive(true);
-                Panel.SetActive(true);
+                pauseButton.SetActive(false);
+                // Panel.SetActive(true);
                 Debug.Log("Ouchs");
 
         }
@@ -77,7 +83,8 @@ public class PlayerCollisions : MonoBehaviour
         {
             GameEvents.instance.gameWon.SetValueAndForceNotify(true);
             winTextObject.SetActive(true);
-            Panel.SetActive(true);
+            pauseButton.SetActive(false);
+            // Panel.SetActive(true);
         }
         if (other.CompareTag("Bottle") && countBottle < emptyBottles.Length)
         {
