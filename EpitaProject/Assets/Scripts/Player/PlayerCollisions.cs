@@ -17,6 +17,7 @@ public class PlayerCollisions : MonoBehaviour
     public PathFollower trackSpeed;
     public PlayerController rotationSpeed;
     private int countBottle = 0;
+    public GameObject Explosion_object;
 
     private int count;
 
@@ -83,6 +84,11 @@ public class PlayerCollisions : MonoBehaviour
             winTextObject.SetActive(true);
             pauseButton.SetActive(false);
             // Panel.SetActive(true);
+        }
+        if (other.tag == "toDestroy")
+        {
+            other.gameObject.SetActive(false);
+            Instantiate(Explosion_object, transform.position, Quaternion.identity);
         }
 
     
