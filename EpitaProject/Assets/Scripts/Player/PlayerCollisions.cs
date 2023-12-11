@@ -18,11 +18,20 @@ public class PlayerCollisions : MonoBehaviour
     public PlayerController rotationSpeed;
     private int countBottle = 0;
     public GameObject Explosion_object;
-
+    public int threshhold = 20; 
     private int count;
+    public int speedBoost = 10  ;
+    public Renderer sphereRenderer;
+
+    public ParticleSystem sphereParticles;
+
 
     void Start()
     {
+        if (sphereParticles != null)
+        {
+            sphereParticles.Stop();
+        }
         count = 0;
         SetCountText();
         winTextObject.SetActive(false);
@@ -63,11 +72,19 @@ public class PlayerCollisions : MonoBehaviour
         }
         if (other.tag == "Obstacle")
         {
-            GameEvents.instance.gameWon.SetValueAndForceNotify(true);
+           if( trackSpeed.speed < threshhold)
+            {
+                GameEvents.instance.gameWon.SetValueAndForceNotify(true);
                 loseTextObject.SetActive(true);
                 pauseButton.SetActive(false);
                 // Panel.SetActive(true);
                 Debug.Log("Ouchs");
+            }
+           else
+            {
+                other.gameObject.SetActive(false); 
+            }
+           
 
         }
         if (other.tag == "Gate")
@@ -79,7 +96,8 @@ public class PlayerCollisions : MonoBehaviour
             GetComponent<Collider>().enabled = false;
         }
         if (other.tag == "Finish")
-        {
+        {   
+          
             GameEvents.instance.gameWon.SetValueAndForceNotify(true);
             winTextObject.SetActive(true);
             pauseButton.SetActive(false);
@@ -99,13 +117,25 @@ public class PlayerCollisions : MonoBehaviour
             Debug.Log("picked bottle") ; 
              if (trackSpeed != null)
             {
-                trackSpeed.speed += 10;
+                trackSpeed.speed += speedBoost;
                 Debug.Log("added speed") ;
             }
             if (rotationSpeed != null)
             {
-                rotationSpeed.speed += 3;
+                rotationSpeed.speed += speedBoost / 5 ;
             }
+            if(threshhold < trackSpeed.speed)
+            if (sphereRenderer != null)
+                {
+                     Material sphereMaterial = sphereRenderer.material;
+                    sphereMaterial.EnableKeyword("_EMISSION");
+
+                    Color baseEmissionColor = Color.white; // Your base emission color
+                    float intensityMultiplier = 0.3f; // Adjust this value for intensity (0 = no emission, 1 = full intensity)
+                    Color finalEmissionColor = baseEmissionColor * intensityMultiplier;
+                    sphereParticles.Play();
+                    sphereMaterial.SetColor("_EmissionColor", finalEmissionColor);
+                }
         }
     }
 

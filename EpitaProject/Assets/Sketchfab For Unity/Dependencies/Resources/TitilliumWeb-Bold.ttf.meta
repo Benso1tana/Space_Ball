@@ -1,22 +1,3 @@
-fileFormatVersion: 2
-guid: e095d0517cc773a4b8ca6410bb7099f1
-TrueTypeFontImporter:
-  externalObjects: {}
-  serializedVersion: 4
-  fontSize: 16
-  forceTextureCase: -2
-  characterSpacing: 0
-  characterPadding: 1
-  includeFontData: 1
-  fontName: Titillium Web
-  fontNames:
-  - Titillium Web
-  fallbackFontReferences: []
-  customCharacters: 
-  fontRenderingMode: 0
-  ascentCalculationMode: 1
-  useLegacyBoundsCalculation: 0
-  shouldRoundAdvanceValue: 1
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
+version https://git-lfs.github.com/spec/v1
+oid sha256:4872d75f323ce9eb6e218a26ba2fa93966aa7759f0f37645b811776682f4327d
+size 526
